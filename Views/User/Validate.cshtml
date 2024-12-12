@@ -1,0 +1,42 @@
+﻿@model HandOnModelValidations.Models.Login
+@{
+    ViewBag.Title = "Validate";
+}
+
+<div class="container">
+    @using(Html.BeginForm("Validate","User","POST"))
+            {
+				<table class="table">
+					<tr>
+						<td>Email</td>
+						<td>
+							@Html.EditorFor(m => m.Email)
+							@Html.ValidationMessageFor(m => m.Email, null, new {@class="text-warning"})
+						</td>
+					</tr>
+					<tr>
+						<td>Password</td>
+						<td>
+							@Html.PasswordFor(m => m.Password)
+							@Html.ValidationMessageFor(m=>m.Password,null, new { @class = "text-warning" })
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<input type="submit" value="Login" />
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<span class="text-warning">@ViewBag.ErrMsg</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<a href="http://localhost:57624/User/Create">Register User!!</a>
+						</td>
+					</tr>
+				</table>
+            }
+</div>
+

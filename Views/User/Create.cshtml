@@ -1,0 +1,81 @@
+﻿@model HandOnModelValidations.Models.User
+@{
+	ViewBag.Title = "Create";
+}
+
+<div class="container">
+	@using (Html.BeginForm("Create", "User", "POST"))
+	{
+		<table class="table">
+			<tr>
+				<td>Id</td>
+				<td>
+					@Html.EditorFor(m => m.Id)
+				@Html.ValidationMessageFor(m => m.Id)
+			</td>
+
+		</tr>
+		<tr>
+			<td>Name</td>
+			<td>
+				@Html.EditorFor(m => m.Name)
+				@Html.ValidationMessageFor(m => m.Name)
+			</td>
+		</tr>
+		<tr>
+			<td>Age</td>
+			<td>
+				@Html.EditorFor(m => m.Age)
+				@Html.ValidationMessageFor(m => m.Age)
+			</td>
+		</tr>
+		<tr>
+			<td>Gender</td>
+			<td>
+				Male @Html.RadioButtonFor(m => m.Gender, "Male")
+				FeMale @Html.RadioButtonFor(m => m.Gender, "FeMale")
+			</td>
+		</tr>
+		<tr>
+			<td>Country</td>
+			<td>
+				@Html.DropDownListFor(m => m.Country, new SelectList(new string[] { "India", "China", "Japan", "Canda" }))
+			</td>
+		</tr>
+		<tr>
+			<td>Email</td>
+			<td>
+				@Html.EditorFor(m => m.Email)
+				@Html.ValidationMessageFor(m => m.Email)
+			</td>
+		</tr>
+		<tr>
+			<td>Mobile</td>
+			<td>
+				@Html.EditorFor(m => m.Mobile)
+				@Html.ValidationMessageFor(m => m.Mobile)
+			</td>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td>
+				@Html.PasswordFor(m => m.Password)
+				@Html.ValidationMessageFor(m => m.Password)
+			</td>
+		</tr>
+		<tr>
+			<td>Confirm Password</td>
+			<td>
+				@Html.PasswordFor(m => m.ConfirmPassword)
+				@Html.ValidationMessageFor(m => m.ConfirmPassword)
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="submit" value="Register" />
+			</td>
+		</tr>
+	</table>
+}
+</div>
+
